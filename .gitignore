@@ -1,3 +1,5 @@
 *.json
 *.pkl
 *.html
+*.DS_Store
+.ipynb_checkpoints/
