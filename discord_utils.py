@@ -93,6 +93,8 @@ def get_trading_days_to_test(period='3mo'):
 
 
 def extract_general_stats_for_day(df):
+    if df.shape[0] == 0:
+        return None
     tickers_df = df.loc[df['n_tickers'] > 0].reset_index(drop=True)
     non_tickers_df = df.loc[df['n_tickers'] == 0].reset_index(drop=True)
 
@@ -258,6 +260,8 @@ class DiscordDataset():
             print('-', end='')
             df = self.df.loc[self.df['date'] == day].reset_index(drop=True)
             general_stats = extract_general_stats_for_day(df)
+            if general_stats is None:
+                continue
             stocks = get_relevent_stocks(df, day)
             for stock in stocks:
                 daily_performance = self.get_stocks_daily_performance(df, stock)
