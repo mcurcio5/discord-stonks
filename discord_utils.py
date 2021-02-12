@@ -86,7 +86,7 @@ def get_trading_days_to_test(period='3mo'):
     # want to get all days in the last two months where day and the next day exists
     days_to_test = []
     for day in trading_days:
-        if day + timedelta(days=1) in trading_days and day < pd.Timestamp('2021-01-30'):
+        if day + timedelta(days=1) in trading_days: # and day < pd.Timestamp('2021-01-30'):
             days_to_test.append(day)
 
     return days_to_test

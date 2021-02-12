@@ -17,6 +17,8 @@ yfinance = "*"
 statsmodels = "*"
 scipy = "*"
 pandas-datareader = "*"
+sklearn = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
